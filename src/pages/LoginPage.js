@@ -1,11 +1,13 @@
+import { LoginLocators } from "../locators/locators";
+
 export class LoginPage{
     constructor(page){
         this.page=page;
 
-        this.usernameInput=page.locator('#user-name');
-        this.passwordInput=page.locator('#password');
-        this.loginButton=page.locator('#login-button');
-        this.errorMsg=page.locator('.error-message-container.error h3');
+        this.usernameInput=page.locator(LoginLocators.usernameInput);
+        this.passwordInput=page.locator(LoginLocators.passwordInput);
+        this.loginButton=page.locator(LoginLocators.loginButton);
+        this.errorMsg=page.locator(LoginLocators.errorMessage);
     }
 
     async navigate(){
