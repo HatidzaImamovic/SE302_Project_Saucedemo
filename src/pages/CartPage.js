@@ -1,15 +1,17 @@
+import { CartLocators } from "../locators/locators";
+
 export class CartPage{
     constructor(page){
         this.page=page;
 
-        this.cartItem=page.locator('.cart_item');
-        this.removeButton=page.locator('button[data-test^="remove"]');
-        this.checkoutButton=page.locator('#checkout');
-        this.continueShoppingButton=page.locator('#continue-shopping');
+        this.cartItem=page.locator(CartLocators.cartItem);
+        this.removeButton=page.locator(CartLocators.removeButton);
+        this.checkoutButton=page.locator(CartLocators.checkoutButton);
+        this.continueShoppingButton=page.locator(CartLocators.continueShoppingButton);
     }
 
     async itemInCart(itemName){
-        return this.page.isVisible(`text=${itemName}`);
+        return (await this.page.locator(`text=${itemName}`).count())>0;
     }
 
     async removeItem(itemName){
@@ -21,7 +23,7 @@ export class CartPage{
         await this.checkoutButton.click();
     }
 
-    async contineShopping(){
+    async continueShopping(){
         await this.continueShoppingButton.click();
     }
 }
