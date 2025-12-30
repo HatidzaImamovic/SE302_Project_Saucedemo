@@ -42,7 +42,7 @@ test.describe('Test cases for Checkout', () => {
         await expect(page).toHaveURL(/cart\.html/);
     });
 
-    test('Finish checkout with Thank you message', async ({page}) => {
+    test('Finish checkout with Thank you message', async () => {
         await checkoutPage.checkOut('Test', 'User', '71000');
         await checkoutPage.finishCheckout();
 
