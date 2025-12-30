@@ -16,7 +16,7 @@ test.describe('SMOKE: Inventory page loads and elements exist', () => {
 
     await expect(inventoryPage.cartButton).toBeVisible();
     await expect(inventoryPage.menuButton).toBeVisible();
-    //await expect(inventoryPage.sortDropdown).toBeVisible(); currently not working
+    await expect(inventoryPage.sortDropdown).toBeVisible();
 
     const productCount = await inventoryPage.visibleFullInventory();
     expect(productCount).toBeGreaterThan(0);
