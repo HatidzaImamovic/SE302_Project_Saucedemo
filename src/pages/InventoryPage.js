@@ -19,13 +19,11 @@ export class InventoryPage{
     }
 
     async addItemToCart(itemName){
-        await this.page.click(
-        `//div[text()="${itemName}"]/ancestor::div[@class="inventory_item"]//button`);
+        await this.page.locator('.inventory_item', {hasText: itemName}).locator('button', {hasText: 'Add to cart'}).click();
     }
 
     async removeItemFromCart(itemName){
-        await this.page.click(
-        `//div[text()="${itemName}"]/ancestor::div[@class="inventory_item"]//button`);
+        await this.page.locator('.inventory_item', {hasText: itemName}).locator('button', {hasText: 'Remove'}).click();
     }
 
     async getItemNames(){
@@ -40,7 +38,7 @@ export class InventoryPage{
     }
 
     async openProductDetails(itemName){
-        await this.page.click(`text=${itemName}`);
+        await this.page.click('.inventory_item_name', {hasText: itemName});
     }
 
     async openCart(){
