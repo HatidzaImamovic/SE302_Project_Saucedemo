@@ -11,12 +11,11 @@ export class CartPage{
     }
 
     async itemInCart(itemName){
-        return (await this.page.locator(`text=${itemName}`).count())>0;
+        return (await this.page.locator('.cart_item', {hasText: itemName}).count())>0;
     }
 
     async removeItem(itemName){
-        await this.page.click(
-         `//div[text()="${itemName}"]/ancestor::div[@class="cart_item"]//button`);
+        await this.page.locator('.cart_item', {hasText: itemName}).locator('button').click();
     }
 
     async checkOut(){
