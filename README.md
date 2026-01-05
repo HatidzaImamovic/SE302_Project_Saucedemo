@@ -26,7 +26,7 @@ SE302_Project_Saucedemo/
 ├─ src/                # Test source files
 │   ├─ tests/          # Test cases
 │   ├─ pages/          # Page Object Models
-│   └─ utils/          # Helper functions
+│   └─ locators/       # File containing all locators
 │
 ├─ package.json        # Project dependencies
 ├─ README.md           # Project documentation
@@ -65,7 +65,7 @@ npm test
 Run a specific test file:
 
 ```bash
-npm test -- <test-file-name>
+npm test tests/<functional/smoke>/<test-file-name>
 ```
 
 ## Test Coverage
